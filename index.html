@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise ✨</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/heart.png">
+</head>
+
+<body class="intro-page">
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="page-loader">
+        <div class="loader-content">
+            <div class="progress-bar-container" id="progress-container">
+                <div class="progress-bar-fill"></div>
+            </div>
+            <div class="loading-text" id="loading-text">Loading Magic...</div>
+        </div>
+    </div>
+
+    <!-- Background Effects -->
+    <div class="particles-container" id="particles-container"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="intro-content reveal-up delay-100">
+            <h1 class="main-title">
+                <span class="gradient-text">Happy Birthday</span>
+            </h1>
+            <p class="subtitle">An unforgettable celebration for an irreplaceable friend.</p>
+
+            <!-- Cake and Bouquet -->
+            <div class="celebration-items reveal-up delay-200">
+                <div class="item-wrapper">
+                    <img src="assets/images/cake.png" alt="Birthday Cake" class="birthday-cake pulse-glow"
+                        onerror="this.src='https://cdn-icons-png.flaticon.com/512/2619/2619082.png'">
+                </div>
+                <div class="item-wrapper">
+                    <img src="assets/images/red_flower.png" alt="Red Flower"
+                        class="bouquet-img pulse-glow delay-100">
+                </div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-container glass-card reveal-up delay-300">
+                <h3>The Day We Celebrate You</h3>
+                <div class="countdown" id="countdown">
+                    <div class="time-unit">
+                        <span class="digit" id="days">00</span>
+                        <span class="label">Days</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="digit" id="hours">00</span>
+                        <span class="label">Hours</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="digit" id="minutes">00</span>
+                        <span class="label">Minutes</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="digit" id="seconds">00</span>
+                        <span class="label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;" class="reveal-up delay-400">
+                <a href="letter.html" class="cta-button">
+                    Open Letter ✨
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Audio Player -->
+    <div class="floating-audio" id="musicToggle">
+        <svg id="musicIcon" viewBox="0 0 24 24">
+            <!-- Play/Pause path handled by JS -->
+            <path d="M8 5v14l11-7z" />
+        </svg>
+    </div>
+
+    <script src="js/countdown.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/fireworks.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

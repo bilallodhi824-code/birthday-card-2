@@ -1,0 +1,255 @@
+/* Premium Elegant Animations */
+
+/* Background Orbs (replacing balloons/hearts) */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, transparent 70%);
+    filter: blur(10px);
+    animation: floatUp 15s infinite linear;
+    pointer-events: none;
+}
+
+.orb-rose {
+    background: radial-gradient(circle, rgba(230, 168, 215, 0.3) 0%, transparent 70%);
+}
+
+/* Premium Balloons (Dark Red with Shine and Glow) */
+.premium-balloon {
+    position: absolute;
+    width: 60px;
+    height: 75px;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 25%),
+        linear-gradient(135deg, rgba(150, 0, 0, 0.95), rgba(80, 0, 0, 0.85));
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    /* Strong Glow and Bottom Shadow */
+    box-shadow: 
+        inset -5px -5px 15px rgba(0, 0, 0, 0.5), 
+        0 0 20px rgba(255, 50, 50, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+    animation: floatBalloon 15s infinite ease-in-out, pulseBalloonGlow 3s infinite alternate;
+    opacity: 0.95;
+}
+
+@keyframes pulseBalloonGlow {
+    0% { box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 50, 50, 0.4); }
+    100% { box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 100, 100, 0.7); }
+}
+
+.premium-balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 8px;
+    background: rgba(100, 0, 0, 0.8);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.premium-balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(139, 0, 0, 0.6), transparent);
+}
+
+.premium-balloon.rose {
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 25%),
+        linear-gradient(135deg, rgba(178, 34, 34, 0.95), rgba(100, 0, 0, 0.85));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: floatBalloon 15s infinite ease-in-out, pulseRoseGlow 3s infinite alternate;
+}
+
+@keyframes pulseRoseGlow {
+    0% { box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 80, 80, 0.4); }
+    100% { box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.5), 0 0 45px rgba(255, 120, 120, 0.7); }
+}
+
+.premium-balloon.rose::before {
+    background: rgba(120, 0, 0, 0.8);
+}
+
+.premium-balloon.rose::after {
+    background: linear-gradient(to bottom, rgba(178, 34, 34, 0.6), transparent);
+}
+
+@keyframes floatBalloon {
+    0% {
+        transform: translateY(110vh) rotate(-5deg) scale(0.8);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-20vh) rotate(5deg) scale(1.1);
+        opacity: 0;
+    }
+}
+
+/* Animated Lanterns for Loading Screen */
+.lantern {
+    position: absolute;
+    width: 80px;
+    height: 100px;
+    background: url('../assets/images/lantern.png') no-repeat center center;
+    background-size: contain;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: floatLantern 10s infinite ease-in;
+    z-index: 1;
+    filter: drop-shadow(0 0 10px rgba(255, 100, 0, 0.4));
+}
+
+@keyframes floatLantern {
+    0% { transform: translateY(110vh) scale(0.8) rotate(-5deg); opacity: 0; }
+    10% { opacity: 0.9; }
+    90% { opacity: 0.9; }
+    100% { transform: translateY(-20vh) scale(1.2) rotate(5deg); opacity: 0; }
+}
+
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(110vh) scale(0.8);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-20vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Reveal Animations */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Pulse Glow */
+.pulse-glow {
+    animation: pulseGlow 3s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.1); }
+    100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); }
+}
+
+/* Fade Out */
+.fade-out {
+    opacity: 0 !important;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* Cake Floating */
+.birthday-cake {
+    width: 150px;
+    animation: smoothHover 4s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(212, 175, 55, 0.3));
+    margin-bottom: 2rem;
+}
+
+@keyframes smoothHover {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Envelope fading out completely */
+@keyframes envelopeVanish {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.1); display: none; }
+}
+
+.envelope-vanish {
+    animation: envelopeVanish 1.5s forwards;
+}
+
+/* 3D Cinematic Rose Petals */
+.petal {
+    position: absolute;
+    top: -50px;
+    background: linear-gradient(135deg, #ff4d6d, #c9184a);
+    border-radius: 15% 85% 15% 85% / 85% 15% 85% 15%;
+    box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.4), 0 5px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0.85;
+    pointer-events: none;
+    animation-name: fallPetal, swayPetal;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+    animation-direction: normal, alternate;
+    transform-style: preserve-3d;
+}
+
+/* Small Glow Particles mixed with petals */
+.petal-glow {
+    position: absolute;
+    top: -20px;
+    background: radial-gradient(circle, rgba(255, 200, 220, 0.9) 0%, rgba(255, 200, 220, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: fallGlow linear infinite;
+    filter: blur(2px);
+}
+
+@keyframes fallPetal {
+    0% {
+        top: -50px;
+        transform: rotate3d(1, 1, 0, var(--rot-x)) rotateZ(var(--rot-z));
+    }
+    100% {
+        top: 110%;
+        transform: rotate3d(1, 1, 1, calc(var(--rot-x) + 360deg)) rotateZ(calc(var(--rot-z) + 180deg));
+    }
+}
+
+@keyframes swayPetal {
+    0% { margin-left: -30px; }
+    100% { margin-left: 30px; }
+}
+
+@keyframes fallGlow {
+    0% {
+        top: -20px;
+        opacity: 0;
+        transform: scale(0.5) translateX(0);
+    }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% {
+        top: 110%;
+        opacity: 0;
+        transform: scale(1.5) translateX(20px);
+    }
+}
